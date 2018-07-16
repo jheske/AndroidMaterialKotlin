@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
+    android:layout_width="@dimen/grid_image_width"
     android:layout_height="wrap_content">
 
     <ImageView
@@ -10,6 +10,5 @@
         android:layout_height="match_parent"
         android:adjustViewBounds="true"
         android:contentDescription="@string/txt_img_photo"
-        android:scaleType="fitCenter"
-        android:src="@drawable/placeholder"/>
+        android:scaleType="centerCrop" />
 </FrameLayout>

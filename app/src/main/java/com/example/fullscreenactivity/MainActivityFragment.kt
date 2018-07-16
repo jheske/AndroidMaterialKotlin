@@ -5,6 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.app.AppCompatActivity
+import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.LinearLayoutManager
 import android.util.Log
 import android.view.*
@@ -18,15 +19,9 @@ class MainActivityFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private lateinit var mContext: Context
     private lateinit var mImageListAdapter: ImageListAdapter
-    private lateinit var mImageStorageDir: File
-    private lateinit var mCurrentImagePath: String
-    private var mImageList: MutableList<ImageItem> = ArrayList()
-
-    var mNickname: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setHasOptionsMenu(true)
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
@@ -37,17 +32,29 @@ class MainActivityFragment : Fragment() {
         return view
     }
 
-    override fun onResume() {
-        super.onResume()
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         setupRecyclerView()
+    }
+
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
         displayImageItems()
+    }
+
+    /**
+     * This is called before onCreate() so save context
+     */
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        mContext = context
     }
 
     private fun setupRecyclerView() {
         rv_images.setHasFixedSize(true)
-        rv_images.layoutManager = LinearLayoutManager(mContext)
-        rv_images.setNestedScrollingEnabled(false)
+        rv_images.setLayoutManager(GridLayoutManager(mContext, 2))
         mImageListAdapter = ImageListAdapter(mContext as AppCompatActivity)
+        rv_images.setNestedScrollingEnabled(false)
         rv_images.adapter = mImageListAdapter
         //See RecyclerView extensions in Extensions.kt
         rv_images.addOnItemClickListener(object : OnItemClickListener {
@@ -69,17 +76,10 @@ class MainActivityFragment : Fragment() {
     fun displayImageItems() {
         mImageListAdapter.clear()
         mImageListAdapter.add(ImageItem("Oncidium Orchid",R.drawable.placeholder))
+        mImageListAdapter.add(ImageItem("Peach Cake",R.drawable.peach_cake))
         mImageListAdapter.add(ImageItem("Hello Dixie",R.drawable.hello_dixie))
         mImageListAdapter.add(ImageItem("Mocha",R.drawable.mocha))
-        mImageListAdapter.add(ImageItem("Mocha",R.drawable.charlie))
-        //mImageListAdapter.addAll(mImageList)
+        mImageListAdapter.add(ImageItem("Charlie",R.drawable.charlie))
     }
 
-    /**
-     * This is called before onCreate() so save context
-     */
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-        mContext = context
-    }
 }

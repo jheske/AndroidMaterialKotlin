@@ -10,8 +10,8 @@
          https://developer.android.com/studio/write/tool-attributes-->
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rv_images"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:orientation="vertical"
         tools:itemCount="3"
         tools:listitem="@layout/listitem_image" />

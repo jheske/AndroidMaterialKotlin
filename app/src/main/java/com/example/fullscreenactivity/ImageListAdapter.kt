@@ -45,7 +45,6 @@ class ImageListAdapter(private val context: Context) : RecyclerView.Adapter<Recy
             imageItem.resource_id.let {
                 Picasso.get()
                         .load(it)
-                        .placeholder(R.drawable.placeholder)
                         .into(holder.mImage)
             }
 
@@ -53,7 +52,7 @@ class ImageListAdapter(private val context: Context) : RecyclerView.Adapter<Recy
         }
     }
 
-    public fun getItemAtPosition(position: Int): ImageItem {
+    fun getItemAtPosition(position: Int): ImageItem {
         return mImageList[position]
     }
 
