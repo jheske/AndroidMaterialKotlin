@@ -31,12 +31,14 @@ class FullsizeImageActivity : AppCompatActivity() {
                 View.SYSTEM_UI_FLAG_LAYOUT_STABLE
         setupTransparentToolbar()
 
-        val imagePath = intent?.getStringExtra(ARG_RESOURCE_ID)
-        loadFragment(imagePath)
+        val imageResourceId = intent?.getIntExtra(ARG_RESOURCE_ID,R.drawable.placeholder)
+        imageResourceId?.let {
+            loadFragment(it)
+        }
     }
 
-    fun loadFragment(imagePath: String?) {
-        val fragment: Fragment = FullsizeImageActivityFragment.newInstance(imagePath)
+    fun loadFragment(imageResourceId: Int) {
+        val fragment: Fragment = FullsizeImageActivityFragment.newInstance(imageResourceId)
         supportFragmentManager.inTransaction {
             add(R.id.fullsize_image_activity_fragment_frame, fragment)
         }

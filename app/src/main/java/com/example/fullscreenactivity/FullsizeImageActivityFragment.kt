@@ -29,7 +29,7 @@ const val ARG_RESOURCE_ID = "resource_id"
  */
 class FullsizeImageActivityFragment : Fragment() {
     private val TAG = FullsizeImageActivityFragment::class.java.simpleName
-    private var mOrchidImagePath: String? = null
+    private var mImageResourceId: Int? = R.drawable.placeholder
 
     companion object {
         /**
@@ -41,10 +41,10 @@ class FullsizeImageActivityFragment : Fragment() {
          */
         // TODO: Rename and change types and number of parameters
         @JvmStatic
-        fun newInstance(param1: String?) =
+        fun newInstance(imageResourceId: Int) =
                 FullsizeImageActivityFragment().apply {
                     arguments = Bundle().apply {
-                        putString(ARG_RESOURCE_ID, param1)
+                        putInt(ARG_RESOURCE_ID, imageResourceId)
                     }
                 }
     }
@@ -53,7 +53,7 @@ class FullsizeImageActivityFragment : Fragment() {
         super.onCreate(savedInstanceState)
         arguments?.let {
             //mOrchidImageUri = Uri.parse(arguments?.getString(ARG_IMAGE_PATH))
-            mOrchidImagePath = arguments?.getString(ARG_RESOURCE_ID)
+            mImageResourceId = arguments?.getInt(ARG_RESOURCE_ID)
         }
         setHasOptionsMenu(true)
     }
@@ -66,11 +66,10 @@ class FullsizeImageActivityFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        mOrchidImagePath?.let {
-            val imgFile = File(it)
-
+        val imageResId = mImageResourceId
+        mImageResourceId?.let {
             Picasso.get()
-                    .load(imgFile)
+                    .load(it)
                     .into(img_fullsize)
         }
     }
