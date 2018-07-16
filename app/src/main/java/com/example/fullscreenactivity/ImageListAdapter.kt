@@ -46,8 +46,6 @@ class ImageListAdapter(private val context: Context) : RecyclerView.Adapter<Recy
                 Picasso.get()
                         .load(it)
                         .placeholder(R.drawable.placeholder)
-                        .resize(200, 200)
-                        .centerCrop()
                         .into(holder.mImage)
             }
 
