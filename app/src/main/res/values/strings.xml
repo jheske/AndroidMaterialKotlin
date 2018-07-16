@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">FullScreenActivity</string>
+    <string name="txt_img_photo">Fullsized Image</string>
+</resources>
