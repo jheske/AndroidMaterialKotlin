@@ -72,12 +72,12 @@ class MainActivityFragment : Fragment() {
 
     fun displayImageItems() {
         mImageListAdapter.clear()
-        mImageListAdapter.add(ImageItem("Charlie",R.drawable.charlie))
-        mImageListAdapter.add(ImageItem("Oncidium Orchid",R.drawable.oncidium))
         mImageListAdapter.add(ImageItem("Peach Cake",R.drawable.peach_cake))
         mImageListAdapter.add(ImageItem("Hello Dixie",R.drawable.hello_dixie))
-        mImageListAdapter.add(ImageItem("Mocha",R.drawable.mocha))
+        mImageListAdapter.add(ImageItem("Oncidium Orchid",R.drawable.oncidium))
         mImageListAdapter.add(ImageItem("London Bridge",R.drawable.london_bridge))
+        mImageListAdapter.add(ImageItem("Mocha",R.drawable.mocha))
+        mImageListAdapter.add(ImageItem("Curry Puffs",R.drawable.curry_puffs))
     }
 
 }
