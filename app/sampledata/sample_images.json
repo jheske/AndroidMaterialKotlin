@@ -1,0 +1,8 @@
+{
+  "data" :[
+    {"image" : "@sample/sampleimages[mocha.jpg]"},
+    {"image" : "@sample/sampleimages[oncidium.jpg]"},
+    {"image" : "@sample/sampleimages[peach_cake.jpg]"},
+    {"image" : "@sample/sampleimages[london_bridge.jpg]"}
+  ]
+}

@@ -7,8 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import com.squareup.picasso.Picasso
-import java.io.File
 import java.util.ArrayList
+
 
 class ImageListAdapter(private val context: Context) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     private val TAG = ImageListAdapter::class.java.simpleName
@@ -17,7 +17,7 @@ class ImageListAdapter(private val context: Context) : RecyclerView.Adapter<Recy
     class EmptyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        var mImage: ImageView = view.findViewById(R.id.img_image) as ImageView
+        var mImageView: ImageView = view.findViewById(R.id.img_image) as ImageView
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
@@ -43,12 +43,14 @@ class ImageListAdapter(private val context: Context) : RecyclerView.Adapter<Recy
         if (holder is ViewHolder) {
             val imageItem = getItemAtPosition(position)
             imageItem.resource_id.let {
-                Picasso.get()
-                        .load(it)
-                        .into(holder.mImage)
+                holder.mImageView.post {
+                    Picasso.get()
+                            .load(it)
+                            .placeholder(R.drawable.placeholder)
+                            .into(holder.mImageView)
+                }
             }
-
-            holder.mImage.contentDescription = imageItem.title
+            holder.mImageView.contentDescription = imageItem.title
         }
     }
 

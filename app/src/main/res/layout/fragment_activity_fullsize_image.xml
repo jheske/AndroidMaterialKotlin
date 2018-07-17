@@ -10,6 +10,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:contentDescription="@string/txt_img_photo"
-        tools:src="@drawable/placeholder"/>
+        tools:src="@drawable/oncidium"/>
 
 </FrameLayout>

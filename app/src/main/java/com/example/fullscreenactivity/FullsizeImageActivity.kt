@@ -31,7 +31,7 @@ class FullsizeImageActivity : AppCompatActivity() {
                 View.SYSTEM_UI_FLAG_LAYOUT_STABLE
         setupTransparentToolbar()
 
-        val imageResourceId = intent?.getIntExtra(ARG_RESOURCE_ID,R.drawable.placeholder)
+        val imageResourceId = intent?.getIntExtra(ARG_RESOURCE_ID,R.drawable.oncidium)
         imageResourceId?.let {
             loadFragment(it)
         }

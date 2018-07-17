@@ -9,7 +9,6 @@ import android.view.View
 import android.view.ViewGroup
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.fragment_activity_fullsize_image.*
-import java.io.File
 
 
 // TODO: Rename parameter arguments, choose names that match
@@ -29,7 +28,7 @@ const val ARG_RESOURCE_ID = "resource_id"
  */
 class FullsizeImageActivityFragment : Fragment() {
     private val TAG = FullsizeImageActivityFragment::class.java.simpleName
-    private var mImageResourceId: Int? = R.drawable.placeholder
+    private var mImageResourceId: Int? = R.drawable.oncidium
 
     companion object {
         /**

@@ -6,12 +6,9 @@ import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.GridLayoutManager
-import android.support.v7.widget.LinearLayoutManager
 import android.util.Log
 import android.view.*
 import kotlinx.android.synthetic.main.fragment_activity_main.*
-import java.io.*
-import kotlin.collections.ArrayList
 
 class MainActivityFragment : Fragment() {
 
@@ -75,11 +72,12 @@ class MainActivityFragment : Fragment() {
 
     fun displayImageItems() {
         mImageListAdapter.clear()
-        mImageListAdapter.add(ImageItem("Oncidium Orchid",R.drawable.placeholder))
+        mImageListAdapter.add(ImageItem("Charlie",R.drawable.charlie))
+        mImageListAdapter.add(ImageItem("Oncidium Orchid",R.drawable.oncidium))
         mImageListAdapter.add(ImageItem("Peach Cake",R.drawable.peach_cake))
         mImageListAdapter.add(ImageItem("Hello Dixie",R.drawable.hello_dixie))
         mImageListAdapter.add(ImageItem("Mocha",R.drawable.mocha))
-        mImageListAdapter.add(ImageItem("Charlie",R.drawable.charlie))
+        mImageListAdapter.add(ImageItem("London Bridge",R.drawable.london_bridge))
     }
 
 }
